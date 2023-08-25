@@ -1,0 +1,70 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SchoolManagementSystemApi.Migrations;
+using SchoolManagementSystemApi.ModelDto;
+using SchoolManagementSystemApi.Models;
+using SchoolManagementSystemApi.Services;
+
+
+namespace SchoolManagementSystemApi.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]/[action]")]
+    public class SchoolController : ControllerBase
+    {
+        private readonly ISchoolRepository iSchoolRepository;
+
+
+        public SchoolController(ISchoolRepository iSchoolRepository)
+        {
+                this.iSchoolRepository = iSchoolRepository;
+        }
+
+        
+        [HttpGet]
+        public IActionResult GetAllSchools()
+        {
+
+            var schoolList = iSchoolRepository.GetAllSchools().ToList();
+
+            return Ok(schoolList);
+
+        }
+
+        [HttpGet]
+        public IActionResult GetSchoolByCode(string schoolCode)
+        {
+
+            var school = iSchoolRepository.GetAllSchoolByCode(schoolCode);
+
+            return Ok(school);
+
+        }
+
+
+        [HttpPost]
+        public IActionResult DeleteSchoolByCode(string schoolCode)
+        {
+            string msg = iSchoolRepository.DeleteSchoolByCode(schoolCode);
+            iSchoolRepository.Save();
+            return Ok(msg);
+        }
+
+        [HttpPost]
+       public IActionResult AddSchool([FromBody] Models.School school)
+       
+        {
+            string msg = iSchoolRepository.AddSchool(school);
+            
+            return Ok(msg);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateSchool([FromBody] ModelDto.SchoolDto schoolDtoObj)
+       {
+                string msg = iSchoolRepository.UpdateSchool(schoolDtoObj);
+                return Ok(msg);
+        }
+    }
+}
