@@ -8,9 +8,18 @@ namespace SchoolManagementSystemApi.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
         [StringLength(100)]
-        public int Code { get; set; }
         public string Name { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string PresentAddress { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string RollNumber { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string ContactNo { get; set; }
     }
 }
