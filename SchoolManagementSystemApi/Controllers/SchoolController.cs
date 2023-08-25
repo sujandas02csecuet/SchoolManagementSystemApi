@@ -43,6 +43,14 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult GetSchooById(int id)
+        {
+            var school = iSchoolRepository.GetAllSchoolById(id);
+
+            return Ok(school);
+        }
+
         [HttpPost]
         public IActionResult DeleteSchoolByCode(string schoolCode)
         {

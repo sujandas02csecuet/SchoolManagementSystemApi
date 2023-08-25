@@ -10,6 +10,7 @@ namespace SchoolManagementSystemApi.Services
         string AddSchool(School school);
         string DeleteSchoolByCode(string schoolCode);
         public ICollection<SchoolDto> GetAllSchoolByCode(string schoolCode);
+        public ICollection<SchoolDto> GetAllSchoolById(int id);
         public ICollection<SchoolDto> GetAllSchools();
         void Save();
         string UpdateSchool(ModelDto.SchoolDto schoolDtoObj);

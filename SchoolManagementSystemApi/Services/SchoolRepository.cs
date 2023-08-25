@@ -60,6 +60,26 @@ namespace SchoolManagementSystemApi.Services
             return schoolsFromDb;
         }
 
+        public ICollection<SchoolDto> GetAllSchoolById(int id)
+        {
+            var listOfSchool = _context.Schools.Where(s => s.Id == id).ToList();
+            List<SchoolDto> schoolsFromDb = new List<SchoolDto>();
+
+            foreach (var schoolData in listOfSchool)
+            {
+                schoolsFromDb.Add(new SchoolDto()
+                {
+                    Id = schoolData.Id,
+                    Name = schoolData.Name,
+                    SchoolAddress = schoolData.SchoolAddress,
+                    MediumOfTeaching = schoolData.MediumOfTeaching,
+                    Code = schoolData.Code,
+                });
+            }
+
+            return schoolsFromDb;
+        }
+
         public ICollection<SchoolDto> GetAllSchools()
         {
             var listOfSchool = _context.Schools.OrderBy(s => s.Name).ToList();
