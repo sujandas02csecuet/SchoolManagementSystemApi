@@ -60,10 +60,10 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
         [HttpPost]
-       public IActionResult AddSchool([FromBody] Models.School school)
+       public IActionResult AddSchool([FromBody] ModelDto.SchoolDto schoolDtoObj)
        
         {
-            string msg = iSchoolRepository.AddSchool(school);
+            string msg = iSchoolRepository.AddSchool(schoolDtoObj);
             
             return Ok(msg);
         }

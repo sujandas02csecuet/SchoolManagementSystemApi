@@ -16,14 +16,31 @@ namespace SchoolManagementSystemApi.Services
             _context = context;
         }
 
-        public string AddSchool(School school)
+        public string AddSchool(SchoolDto schoolDto)
         {
-          
-            _context.Add(school);
+            try
+            {
+
+            
+            Models.School schoolObj = new Models.School();
+            schoolObj.Id = schoolDto.Id;
+            schoolObj.Name = schoolDto.Name;
+            schoolObj.SchoolAddress = schoolDto.SchoolAddress;
+            schoolObj.MediumOfTeaching = schoolDto.MediumOfTeaching;
+            schoolObj.Code = schoolDto.Code;
+            _context.Add(schoolObj);
             Save();
              
             return "success";
+            }
+            catch (Exception exp)
+            {
+
+                return exp.Message.ToString();
+            }
         }
+
+       
 
         public string DeleteSchoolByCode(string schoolCode)
         {
