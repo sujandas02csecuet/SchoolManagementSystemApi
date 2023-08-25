@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolManagementSystemApi.Services;
 
 namespace SchoolManagementSystemApi.Controllers
 {
@@ -9,24 +10,22 @@ namespace SchoolManagementSystemApi.Controllers
     public class StudentController : ControllerBase
     {
 
-        [HttpGet]
-        public string GetName()
+        private readonly IStudentRepository studentRepository;
+
+        public StudentController(IStudentRepository studentRepository)
         {
-
-            return "Rama";
+            this.studentRepository = studentRepository;
         }
 
-
         [HttpGet]
-        public string GetAddress()
+        public IActionResult GetAllStudents()
         {
-            return "Ayodha";
-
+            var studentList = studentRepository.GetAllStudents().ToList();
+            return Ok(studentList);
+           
         }
 
-        [HttpGet]
-        public string GetDynasty() {
-            return "Surya Bangsa";
-        }
+
+        
     }
 }
