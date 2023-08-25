@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManagementSystemApi.Data;
 
@@ -10,9 +11,11 @@ using SchoolManagementSystemApi.Data;
 namespace SchoolManagementSystemApi.Migrations
 {
     [DbContext(typeof(SchoolManagementApiContext))]
-    partial class SchoolManagementApiContextModelSnapshot : ModelSnapshot
+    [Migration("20230825094514_addTableStudent")]
+    partial class addTableStudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
