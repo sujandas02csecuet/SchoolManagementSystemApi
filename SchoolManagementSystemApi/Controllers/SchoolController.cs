@@ -74,5 +74,10 @@ namespace SchoolManagementSystemApi.Controllers
                 string msg = iSchoolRepository.UpdateSchool(schoolDtoObj);
                 return Ok(msg);
         }
+
+        // test from git hub web 1
+        // test from git hub web 2
+        // test from git hub web 3
+        
     }
 }
