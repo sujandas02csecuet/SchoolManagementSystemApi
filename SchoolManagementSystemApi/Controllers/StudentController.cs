@@ -10,39 +10,23 @@ namespace SchoolManagementSystemApi.Controllers
     public class StudentController : ControllerBase
     {
 
-        private readonly IStudentRepository studentRepository;
-
-        public StudentController(IStudentRepository studentRepository)
+        [HttpGet]
+        public string GetName()
         {
-            this.studentRepository = studentRepository;
+
+            return "Rama";
         }
 
         [HttpGet]
-        public IActionResult GetAllStudents()
+        public string GetAddress()
         {
-            var studentList = studentRepository.GetAllStudents().ToList();
-            return Ok(studentList);
-           
-        }
+            return "Ayodha";
 
+        }
 
         [HttpGet]
-        public IActionResult GetStudentByName(string name)
-        {
-
-            var studentList=studentRepository.GetAllStudentsByName(name).ToList();
-            return Ok(studentList);
-
+        public string GetDynasty() {
+            return "Surya Bangsa";
         }
-
-
-        [HttpPost]
-        public IActionResult DeleteStudent(string rollNumber) 
-        {
-            string msg = studentRepository.DeleteStudentByRollNumber(rollNumber);
-            return Ok(msg);
-        
-        }
-
     }
 }
