@@ -96,5 +96,28 @@ namespace SchoolManagementSystemApi.Services
                 return exp.Message.ToString();
             }
         }
+
+        public string UpdateStudent(StudentDto studentDtoObj)
+        {
+            try
+            {
+                Models.Student studentObj = new Models.Student();
+
+                studentObj.Id=studentDtoObj.Id;
+                studentObj.Name = studentDtoObj.Name;
+                studentObj.PresentAddress = studentDtoObj.PresentAddress;
+                studentObj.RollNumber = studentDtoObj.RollNumber;
+                studentObj.ContactNo = studentDtoObj.ContactNo;
+                dbContext.Entry(studentObj).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                Save();
+
+                return "success";
+            }
+            catch (Exception exp)
+            {
+
+                return exp.Message.ToString();
+            }
+        }
     }
 }

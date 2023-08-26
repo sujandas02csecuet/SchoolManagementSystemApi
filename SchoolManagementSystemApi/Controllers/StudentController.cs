@@ -57,6 +57,12 @@ namespace SchoolManagementSystemApi.Controllers
             return Ok(msg);
         }
 
+        [HttpPost]
+        public IActionResult UpdateStudent([FromBody] ModelDto.StudentDto studentDtoObj)
+        {
+            string msg = iStudentRepository.UpdateStudent(studentDtoObj);
+            return Ok(msg);
+        }
 
 
     }

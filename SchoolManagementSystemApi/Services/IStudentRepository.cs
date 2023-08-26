@@ -8,5 +8,6 @@ namespace SchoolManagementSystemApi.Services
         string DeleteStudentByRollNumber(string rollNumber);
         public ICollection<StudentDto> GetAllStudents();
         public ICollection<StudentDto> GetAllStudentsByName(string name);
+        string UpdateStudent(StudentDto studentDtoObj);
     }
 }
