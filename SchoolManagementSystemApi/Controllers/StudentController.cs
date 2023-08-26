@@ -19,15 +19,35 @@ namespace SchoolManagementSystemApi.Controllers
 
 
         [HttpGet]
-        public IActionResult ConflictTesting() {
+        public IActionResult GetAllStudents()
+        {
 
-            string msg = "joy sree Ram";
-            return Ok(msg);
+            var studentList = iStudentRepository.GetAllStudents().ToList();
+
+            return Ok(studentList);
 
         }
-       
+        [HttpGet]
+        public IActionResult GetAllStudentsByName(string name)
+        {
+
+            var studentList = iStudentRepository.GetAllStudentsByName(name).ToList();
+
+            return Ok(studentList);
+
+        }
 
 
-        
+
+        [HttpPost]
+        public IActionResult DeleteStudentByRoll(string rollNumber)
+        {
+            string msg = iStudentRepository.DeleteStudentByRollNumber(rollNumber);
+
+            return Ok(msg);
+        }
+
+
+
     }
 }
