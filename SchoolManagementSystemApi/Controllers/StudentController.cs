@@ -72,6 +72,17 @@ namespace SchoolManagementSystemApi.Controllers
             return Ok(studentList);
 
         }
+
+
+        // conflict creation from desktop 1
+        // conflict creation from desktop 2
+        // conflict creation from desktop 3
+
+        // conflict creation from desktop 4
+        // conflict creation from desktop 5
+        // conflict creation from desktop 6
+        
+
         // conflict creation from web 1
         // conflict creation from web 2
         // conflict creation from web 3
@@ -79,6 +90,10 @@ namespace SchoolManagementSystemApi.Controllers
         // conflict creation from web 4
         // conflict creation from web 5
         // conflict creation from web 6
+
+
+    }
+
         
-        }
+
 }
