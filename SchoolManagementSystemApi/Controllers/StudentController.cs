@@ -26,6 +26,16 @@ namespace SchoolManagementSystemApi.Controllers
             return Ok(studentList);
 
         }
+        [HttpGet]
+        public IActionResult GetAllStudentsByName(string name)
+        {
+
+            var studentList = iStudentRepository.GetAllStudentsByName(name).ToList();
+
+            return Ok(studentList);
+
+        }
+
 
     }
 }
