@@ -73,12 +73,18 @@ namespace SchoolManagementSystemApi.Controllers
 
         }
 
-        
-
 
         // conflict creation from desktop 1
         // conflict  creation from desktop 2
         // conflict creation from desktop 3
+
+        // conflict creation from desktop 4
+        // conflict  creation from desktop 5
+        // conflict creation from desktop 6
+
+        // conflict creation from desktop 7
+        // conflict  creation from desktop 8
+        // conflict creation from desktop 9
 
     }
 }
