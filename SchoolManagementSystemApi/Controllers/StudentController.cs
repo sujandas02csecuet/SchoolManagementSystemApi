@@ -10,23 +10,6 @@ namespace SchoolManagementSystemApi.Controllers
     public class StudentController : ControllerBase
     {
 
-        [HttpGet]
-        public string GetName()
-        {
-
-            return "Rama";
-        }
-
-        [HttpGet]
-        public string GetAddress()
-        {
-            return "Ayodha";
-
-        }
-
-        [HttpGet]
-        public string GetDynasty() {
-            return "Surya Bangsa";
-        }
+       
     }
 }
