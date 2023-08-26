@@ -73,9 +73,6 @@ namespace SchoolManagementSystemApi.Controllers
 
         }
 
-        ///////////////////
-        ///////////////////
-        ///////////////////
 
         [HttpGet]
         public IActionResult GetAllStudentsById(string id)
@@ -85,7 +82,5 @@ namespace SchoolManagementSystemApi.Controllers
             return Ok(studentList);
 
         }
-
-        
     }
 }
