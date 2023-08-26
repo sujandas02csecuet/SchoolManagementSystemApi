@@ -73,8 +73,6 @@ namespace SchoolManagementSystemApi.Controllers
 
         }
 
-        ////////////////
-        /////////////////////
-        /////////////////////////////////
+        // edit from visual studio 2022 desktop 
     }
 }
