@@ -97,6 +97,10 @@ namespace SchoolManagementSystemApi.Services
             return schoolsFromDb;
         }
 
+           // test from git hub web 1
+        // test from git hub web 2
+        // test from git hub web 3
+
         public ICollection<SchoolDto> GetAllSchools()
         {
             var listOfSchool = _context.Schools.OrderBy(s => s.Name).ToList();
