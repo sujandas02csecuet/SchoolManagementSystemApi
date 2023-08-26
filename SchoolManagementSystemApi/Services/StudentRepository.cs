@@ -119,5 +119,25 @@ namespace SchoolManagementSystemApi.Services
                 return exp.Message.ToString();
             }
         }
+
+        public ICollection<StudentDto> GetAllStudentsById(string id)
+        {
+            var listOfStudent = dbContext.Students.Where(student => student.Id.ToString()==id).ToList();
+            List<StudentDto> students = new List<StudentDto>();
+
+            foreach (var student in listOfStudent)
+            {
+
+                students.Add(new StudentDto()
+                {
+                    Id = student.Id,
+                    Name = student.Name,
+                    ContactNo = student.ContactNo,
+                    PresentAddress = student.PresentAddress,
+                    RollNumber = student.RollNumber,
+                });
+            }
+            return students;
+        }
     }
 }

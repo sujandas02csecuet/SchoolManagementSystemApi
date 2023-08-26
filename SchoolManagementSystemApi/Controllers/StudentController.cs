@@ -38,7 +38,6 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
 
-
         [HttpPost]
         public IActionResult DeleteStudentByRoll(string rollNumber)
         {
@@ -65,5 +64,15 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult GetAllStudentsById(string id)
+        {
+            var studentList = iStudentRepository.GetAllStudentsById(id).ToList();
+
+            return Ok(studentList);
+
+        }
+
+        
     }
 }
