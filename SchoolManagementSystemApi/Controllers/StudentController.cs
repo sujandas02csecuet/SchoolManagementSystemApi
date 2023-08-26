@@ -76,11 +76,15 @@ namespace SchoolManagementSystemApi.Controllers
         // edit from web 1 
         // edit from web 2
         // edit from web 3
-
-
+        
         // edit from web 4
         // edit from web 5
         // edit from web 6
+
+        // edit from web 7
+        // edit from web 8
+        // edit from web 9
+        
        
     }
 }
