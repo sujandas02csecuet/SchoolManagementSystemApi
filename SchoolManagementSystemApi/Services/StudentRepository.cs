@@ -72,5 +72,29 @@ namespace SchoolManagementSystemApi.Services
             }
             return students;
         }
+
+        public string AddStudent(StudentDto studentDtoObj)
+        {
+            try
+            {
+
+
+                Models.Student studentObj = new Models.Student();
+              
+                studentObj.Name = studentDtoObj.Name;
+                studentObj.PresentAddress = studentDtoObj.PresentAddress;
+                studentObj.RollNumber = studentDtoObj.RollNumber;
+                studentObj.ContactNo = studentDtoObj.ContactNo;
+                dbContext.Add(studentObj);
+                Save();
+
+                return "success";
+            }
+            catch (Exception exp)
+            {
+
+                return exp.Message.ToString();
+            }
+        }
     }
 }

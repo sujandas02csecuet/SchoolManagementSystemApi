@@ -48,6 +48,16 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
 
+        [HttpPost]
+        public IActionResult AddStudent([FromBody] ModelDto.StudentDto studentDtoObj)
+
+        {
+            string msg = iStudentRepository.AddStudent(studentDtoObj);
+
+            return Ok(msg);
+        }
+
+
 
     }
 }
