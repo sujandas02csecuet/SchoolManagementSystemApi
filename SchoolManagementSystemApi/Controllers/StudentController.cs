@@ -17,33 +17,17 @@ namespace SchoolManagementSystemApi.Controllers
             this.iStudentRepository = iStudentRepository;
         }
 
+
         [HttpGet]
-        public IActionResult GetAllStudents()
-        {
+        public IActionResult ConflictTesting() {
 
-            var studentList = iStudentRepository.GetAllStudents().ToList();
-
-            return Ok(studentList);
-
-        }
-        [HttpGet]
-        public IActionResult GetAllStudentsByName(string name)
-        {
-
-            var studentList = iStudentRepository.GetAllStudentsByName(name).ToList();
-
-            return Ok(studentList);
-
-        }
-
-
-
-        [HttpPost]
-        public IActionResult DeleteStudentByRoll(string rollNumber)
-        {
-            string msg = iStudentRepository.DeleteStudentByRollNumber(rollNumber);
-
+            string msg = "joy sree Ram";
             return Ok(msg);
+
         }
+       
+
+
+        
     }
 }
