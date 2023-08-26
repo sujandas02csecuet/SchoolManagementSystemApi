@@ -26,6 +26,23 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult GetStudentByName(string name)
+        {
+
+            var studentList=studentRepository.GetAllStudentsByName(name).ToList();
+            return Ok(studentList);
+
+        }
+
+
+        [HttpPost]
+        public IActionResult DeleteStudent(string rollNumber) 
+        {
+            string msg = studentRepository.DeleteStudentByRollNumber(rollNumber);
+            return Ok(msg);
         
+        }
+
     }
 }
