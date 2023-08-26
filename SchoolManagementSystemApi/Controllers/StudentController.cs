@@ -73,8 +73,6 @@ namespace SchoolManagementSystemApi.Controllers
 
         }
 
-        ////////////////
-        /////////////////////
-        /////////////////////////////////
+        // edit from git hub web
     }
 }
