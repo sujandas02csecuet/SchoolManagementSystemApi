@@ -9,23 +9,61 @@ namespace SchoolManagementSystemApi.Controllers
     [Route("api/[controller]/[action]")]
     public class StudentController : ControllerBase
     {
+        private readonly IStudentRepository iStudentRepository;
 
-        private readonly IStudentRepository studentRepository;
 
-        public StudentController(IStudentRepository studentRepository)
+        public StudentController(IStudentRepository iStudentRepository)
         {
-            this.studentRepository = studentRepository;
+            this.iStudentRepository = iStudentRepository;
         }
+
 
         [HttpGet]
         public IActionResult GetAllStudents()
         {
-            var studentList = studentRepository.GetAllStudents().ToList();
+
+            var studentList = iStudentRepository.GetAllStudents().ToList();
+
             return Ok(studentList);
-           
+
+        }
+        [HttpGet]
+        public IActionResult GetAllStudentsByName(string name)
+        {
+
+            var studentList = iStudentRepository.GetAllStudentsByName(name).ToList();
+
+            return Ok(studentList);
+
         }
 
 
-        
+
+        [HttpPost]
+        public IActionResult DeleteStudentByRoll(string rollNumber)
+        {
+            string msg = iStudentRepository.DeleteStudentByRollNumber(rollNumber);
+
+            return Ok(msg);
+        }
+
+
+        [HttpPost]
+        public IActionResult AddStudent([FromBody] ModelDto.StudentDto studentDtoObj)
+
+        {
+            string msg = iStudentRepository.AddStudent(studentDtoObj);
+
+            return Ok(msg);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateStudent([FromBody] ModelDto.StudentDto studentDtoObj)
+        {
+            string msg = iStudentRepository.UpdateStudent(studentDtoObj);
+            return Ok(msg);
+        }
+
+
     }
 }

@@ -55,7 +55,7 @@ namespace SchoolManagementSystemApi.Controllers
         public IActionResult DeleteSchoolByCode(string schoolCode)
         {
             string msg = iSchoolRepository.DeleteSchoolByCode(schoolCode);
-            iSchoolRepository.Save();
+           
             return Ok(msg);
         }
 
