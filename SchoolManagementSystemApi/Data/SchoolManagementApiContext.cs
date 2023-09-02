@@ -15,5 +15,7 @@ namespace SchoolManagementSystemApi.Data
 
         public DbSet<SchoolManagementSystemApi.Models.School> Schools { get; set; }
         public DbSet<SchoolManagementSystemApi.Models.Student> Students { get; set; }
+
+        public DbSet<SchoolManagementSystemApi.Models.Employee> Employees { get; set; }
     }
 }
