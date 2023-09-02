@@ -14,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<ISchoolRepository, SchoolRepository>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 var app = builder.Build();
 
 app.MapGet("/", () => "Joy Sree Rama, API is Running");
