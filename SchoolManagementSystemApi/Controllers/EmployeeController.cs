@@ -23,10 +23,7 @@ namespace SchoolManagementSystemApi.Controllers
             return Ok(employeeList);
         
         }
-
-        // joy sree rama
-        // joy hanuman gyan guna sagor
-        // Joy kapis tiho lok ujagor
+// ram dut adulito baldhama
         
 
     }
