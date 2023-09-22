@@ -21,8 +21,19 @@ namespace SchoolManagementSystemApi.Controllers
         {
             var employeeList = iEmployeeRepository.GetAllEmployees().ToList();
             return Ok(employeeList);
-        
         }
+
+
+        [HttpGet]
+        public IActionResult GetEmployeeByType(string employeeType) {
+        
+            var employeeList=iEmployeeRepository.GetAllEmployeesByType(employeeType).ToList();
+            return Ok(employeeList);
+
+        }
+
+
+
 
 
 
