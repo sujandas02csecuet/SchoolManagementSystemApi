@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystemApi.Migrations;
@@ -11,6 +12,7 @@ namespace SchoolManagementSystemApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
+
     public class SchoolController : ControllerBase
     {
         private readonly ISchoolRepository iSchoolRepository;
@@ -21,7 +23,7 @@ namespace SchoolManagementSystemApi.Controllers
                 this.iSchoolRepository = iSchoolRepository;
         }
 
-        
+        [EnableCors("Policy1")]
         [HttpGet]
         public IActionResult GetAllSchools()
         {
