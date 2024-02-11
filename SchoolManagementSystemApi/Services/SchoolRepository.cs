@@ -42,10 +42,10 @@ namespace SchoolManagementSystemApi.Services
 
        
 
-        public string DeleteSchoolByCode(string schoolCode)
+        public string DeleteSchoolByCode(string code)
         {
             string msg = "";
-            var listOfSchool = _context.Schools.Where(s => s.Code == schoolCode).FirstOrDefault();
+            var listOfSchool = _context.Schools.Where(s => s.Code == code).FirstOrDefault();
 
             if (listOfSchool != null)
             {

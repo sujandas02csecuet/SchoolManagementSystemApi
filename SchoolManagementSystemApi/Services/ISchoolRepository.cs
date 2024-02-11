@@ -8,7 +8,7 @@ namespace SchoolManagementSystemApi.Services
     public interface ISchoolRepository
     {
         string AddSchool(ModelDto.SchoolDto schoolDtoObj);
-        string DeleteSchoolByCode(string schoolCode);
+        string DeleteSchoolByCode(string code);
         public ICollection<SchoolDto> GetAllSchoolByCode(string schoolCode);
         public ICollection<SchoolDto> GetAllSchoolById(int id);
         public ICollection<SchoolDto> GetAllSchools();

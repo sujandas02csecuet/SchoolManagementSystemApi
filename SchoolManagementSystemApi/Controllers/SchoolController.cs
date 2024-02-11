@@ -23,7 +23,7 @@ namespace SchoolManagementSystemApi.Controllers
                 this.iSchoolRepository = iSchoolRepository;
         }
 
-        [EnableCors("Policy1")]
+      
         [HttpGet]
         public IActionResult GetAllSchools()
         {
@@ -53,12 +53,16 @@ namespace SchoolManagementSystemApi.Controllers
             return Ok(school);
         }
 
-        [HttpPost]
-        public IActionResult DeleteSchoolByCode(string schoolCode)
+      // [HttpPost]
+        [HttpDelete("{code}")]
+        //[HttpDelete]
+
+        public IActionResult DeleteSchoolByCode(string code)
         {
-            string msg = iSchoolRepository.DeleteSchoolByCode(schoolCode);
+            string msg = iSchoolRepository.DeleteSchoolByCode(code);
            
             return Ok(msg);
+          //  return Ok(new { message = "User deleted" });
         }
 
         [HttpPost]
