@@ -25,7 +25,7 @@ namespace SchoolManagementSystemApi.Controllers
 
       
         [HttpGet]
-        public IActionResult GetAllSchools()
+        public async Task< IActionResult> GetAllSchools()
         {
 
             var schoolList = iSchoolRepository.GetAllSchools().ToList();
@@ -35,7 +35,7 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetSchoolByCode(string schoolCode)
+        public async Task<IActionResult> GetSchoolByCode(string schoolCode)
         {
 
             var school = iSchoolRepository.GetAllSchoolByCode(schoolCode);
@@ -46,7 +46,7 @@ namespace SchoolManagementSystemApi.Controllers
 
 
         [HttpGet]
-        public IActionResult GetSchooById(int id)
+        public async Task<IActionResult> GetSchooById(int id)
         {
             var school = iSchoolRepository.GetAllSchoolById(id);
 
@@ -57,7 +57,7 @@ namespace SchoolManagementSystemApi.Controllers
         [HttpDelete("{code}")]
         //[HttpDelete]
 
-        public IActionResult DeleteSchoolByCode(string code)
+        public async  Task<IActionResult> DeleteSchoolByCode(string code)
         {
             string msg = iSchoolRepository.DeleteSchoolByCode(code);
            
@@ -66,7 +66,7 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
         [HttpPost]
-       public IActionResult AddSchool([FromBody] ModelDto.SchoolDto schoolDtoObj)
+       public async Task<IActionResult> AddSchool([FromBody] ModelDto.SchoolDto schoolDtoObj)
        
         {
             string msg = iSchoolRepository.AddSchool(schoolDtoObj);
@@ -75,7 +75,7 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateSchool([FromBody] ModelDto.SchoolDto schoolDtoObj)
+        public async Task<IActionResult> UpdateSchool([FromBody] ModelDto.SchoolDto schoolDtoObj)
        {
                 string msg = iSchoolRepository.UpdateSchool(schoolDtoObj);
                 return Ok(msg);
