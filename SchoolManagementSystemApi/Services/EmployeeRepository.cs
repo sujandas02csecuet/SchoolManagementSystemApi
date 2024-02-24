@@ -12,7 +12,7 @@ namespace SchoolManagementSystemApi.Services
             dbContext = schoolDbContext;
         }
 
-        public ICollection<EmployeeDto> GetAllEmployees()
+        public List<EmployeeDto> GetAllEmployees()
         {
             var listOfEmployees=dbContext.Employees.OrderBy(employee=>employee.Name).ToList();
             List<EmployeeDto> employees = new List<EmployeeDto>();

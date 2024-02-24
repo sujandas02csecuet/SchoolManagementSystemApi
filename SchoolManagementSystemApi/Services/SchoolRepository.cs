@@ -11,6 +11,10 @@ namespace SchoolManagementSystemApi.Services
 
         private SchoolManagementApiContext _context;
 
+        public SchoolRepository()
+        {
+        }
+
         public SchoolRepository(SchoolManagementApiContext context)
         {
             _context = context;

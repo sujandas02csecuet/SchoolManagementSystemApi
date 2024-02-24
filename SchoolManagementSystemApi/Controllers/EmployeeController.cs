@@ -11,6 +11,7 @@ namespace SchoolManagementSystemApi.Controllers
     {
         private readonly IEmployeeRepository iEmployeeRepository;
 
+
         public EmployeeController(IEmployeeRepository iEmployeeRepository )
         {
             this.iEmployeeRepository = iEmployeeRepository;
@@ -24,7 +25,6 @@ namespace SchoolManagementSystemApi.Controllers
         }
 // ram dut adulito baldhama
         
-
 
         [HttpGet]
         public IActionResult GetEmployeeByType(string employeeType) {
