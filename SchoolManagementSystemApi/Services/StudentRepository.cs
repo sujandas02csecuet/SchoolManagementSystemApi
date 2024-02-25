@@ -17,7 +17,7 @@ namespace SchoolManagementSystemApi.Services
         // test from git hub web 3
         public string DeleteStudentByRollNumber(string rollNumber)
         {
-            string msg = "";
+            string msg = "Student not found";
             var listOfStudent = dbContext.Students.Where(student => student.RollNumber == rollNumber).FirstOrDefault();
 
             if (listOfStudent != null)

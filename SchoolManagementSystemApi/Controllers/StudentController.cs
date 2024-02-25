@@ -30,15 +30,11 @@ namespace SchoolManagementSystemApi.Controllers
         [HttpGet]
         public IActionResult GetAllStudentsByName(string name)
         {
-
             var studentList = iStudentRepository.GetAllStudentsByName(name).ToList();
-
             return Ok(studentList);
-
         }
 
-
-        [HttpPost]
+        [HttpDelete("{rollNumber}")]
         public IActionResult DeleteStudentByRoll(string rollNumber)
         {
             string msg = iStudentRepository.DeleteStudentByRollNumber(rollNumber);
