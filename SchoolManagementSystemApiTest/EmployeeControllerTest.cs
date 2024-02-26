@@ -98,5 +98,17 @@ public class EmployeeControllerTest
 
     }
 
+
+
+    [Fact]
+    public async void Task_Delete_Employee_ReturnOkResult() { 
+
+        var controller = new EmployeeController(employeeRepository);
+        var id = 7;
+        var data = controller.DeleteEmployeeById(id.ToString());
+        var okResult=Assert.IsType<OkObjectResult>(data);
+        Assert.Equal("success", okResult.Value);
+    
+    }
     
 }

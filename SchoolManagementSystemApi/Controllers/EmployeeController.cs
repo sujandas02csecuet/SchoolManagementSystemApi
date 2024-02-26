@@ -23,8 +23,16 @@ namespace SchoolManagementSystemApi.Controllers
             var employeeList = iEmployeeRepository.GetAllEmployees().ToList();
             return Ok(employeeList);
         }
-// ram dut adulito baldhama
-        
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteEmployeeById(string id)
+        {
+            string msg = iEmployeeRepository.DeleteEmployeeById(id);
+
+            return Ok(msg);
+        }
+        // ram dut adulito baldhama
+
 
         [HttpGet]
         public IActionResult GetEmployeeByType(string employeeType) {

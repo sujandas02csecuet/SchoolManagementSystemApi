@@ -75,6 +75,15 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> AddSchoolNew(string ss)
+
+        {
+            string msg = "joy sree rama".ToString();
+
+            return Ok(msg.ToString());
+        }
+
+        [HttpPost]
         public async Task<IActionResult> UpdateSchool([FromBody] ModelDto.SchoolDto schoolDtoObj)
        {
                 string msg = iSchoolRepository.UpdateSchool(schoolDtoObj);

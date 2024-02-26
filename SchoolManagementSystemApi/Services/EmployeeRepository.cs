@@ -1,4 +1,5 @@
-﻿using SchoolManagementSystemApi.Data;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+using SchoolManagementSystemApi.Data;
 using SchoolManagementSystemApi.ModelDto;
 
 namespace SchoolManagementSystemApi.Services
@@ -10,6 +11,25 @@ namespace SchoolManagementSystemApi.Services
         public EmployeeRepository(SchoolManagementApiContext schoolDbContext = null)
         {
             dbContext = schoolDbContext;
+        }
+
+        public string DeleteEmployeeById(string id)
+        {
+            string msg = "Employee Not Found";
+            var listOfEmployee = dbContext.Employees.Where(employee => employee.Id == Convert.ToInt32(id)).FirstOrDefault();
+            if (listOfEmployee != null)
+            { 
+            dbContext.Employees.Remove(listOfEmployee);
+                Save();
+                msg = "success";
+            }
+            return msg;
+        
+        }
+
+        private void Save()
+        {
+            dbContext.SaveChanges();
         }
 
         public List<EmployeeDto> GetAllEmployees()
