@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Diagnostics;
 using SchoolManagementSystemApi.Data;
 using SchoolManagementSystemApi.ModelDto;
+using SQLitePCL;
 
 namespace SchoolManagementSystemApi.Services
 {
@@ -75,6 +76,30 @@ namespace SchoolManagementSystemApi.Services
                 });
             }
             return employees;
+        }
+
+        public string AddEmployee(EmployeeDto employeeDto)
+        {
+            try {
+                Models.Employee employeeObj = new Models.Employee();
+                employeeObj.Id = employeeDto.Id;
+                employeeObj.Name = employeeDto.Name;
+                employeeObj.Email = employeeDto.Email;
+                employeeObj.PresentAddress = employeeDto.PresentAddress;
+                employeeObj.PhoneNumber = employeeDto.PhoneNumber;
+                employeeObj.NationalIdNo = employeeDto.NationalIdNo;
+                employeeObj.EmployeeType = employeeDto.EmployeeType;
+
+                dbContext.Add(employeeObj);
+                Save();
+
+                return "success";
+
+            }
+            catch (Exception ex)
+            {
+                return ex.Message.ToString();
+            }
         }
     }
 }

@@ -14,6 +14,8 @@ namespace SchoolManagementSystemApi.Controllers
     [Route("api/[controller]/[action]")]
 
     public class SchoolController : ControllerBase
+
+
     {
         private readonly ISchoolRepository iSchoolRepository;
 
@@ -45,10 +47,10 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> GetSchooById(int id)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetSchooById(string id)
         {
-            var school = iSchoolRepository.GetAllSchoolById(id);
+            var school = iSchoolRepository.GetAllSchoolById(Convert.ToInt32(id));
 
             return Ok(school);
         }
@@ -74,14 +76,7 @@ namespace SchoolManagementSystemApi.Controllers
             return Ok(msg);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddSchoolNew(string ss)
-
-        {
-            string msg = "joy sree rama".ToString();
-
-            return Ok(msg.ToString());
-        }
+    
 
         [HttpPost]
         public async Task<IActionResult> UpdateSchool([FromBody] ModelDto.SchoolDto schoolDtoObj)

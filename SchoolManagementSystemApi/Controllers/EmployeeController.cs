@@ -42,7 +42,12 @@ namespace SchoolManagementSystemApi.Controllers
 
         }
 
-
+        [HttpPost]
+        public async Task<IActionResult> AddEmployee([FromBody] ModelDto.EmployeeDto employeeObj)
+        {
+            string msg = iEmployeeRepository.AddEmployee(employeeObj);
+            return Ok(msg);
+        }
 
 
 
