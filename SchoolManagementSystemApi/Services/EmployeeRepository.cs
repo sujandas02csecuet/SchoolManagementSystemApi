@@ -101,5 +101,26 @@ namespace SchoolManagementSystemApi.Services
                 return ex.Message.ToString();
             }
         }
+
+        public ICollection<EmployeeDto> GetEmployeeById(int id)
+        {
+            var listOfEmployee = dbContext.Employees.Where(s => s.Id == id).ToList();
+            List<EmployeeDto> employees = new List<EmployeeDto>();
+
+
+            foreach (var employeeData in listOfEmployee) {
+                employees.Add(new EmployeeDto()
+                {
+                    Id = employeeData.Id,
+                    Name = employeeData.Name,
+                    Email = employeeData.Email,
+                    PresentAddress = employeeData.PresentAddress,
+                    PhoneNumber = employeeData.PhoneNumber,
+                    NationalIdNo = employeeData.NationalIdNo,
+                    EmployeeType = employeeData.EmployeeType
+                });
+            }
+            return employees;
+        }
     }
 }

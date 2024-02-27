@@ -50,8 +50,15 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
 
+        [HttpPost("{id}")]
 
 
+        public async Task<IActionResult> GetEmployeeById(string id)
+        {
+            var  employee = iEmployeeRepository.GetEmployeeById(Convert.ToInt32(id));
+
+            return Ok(employee);
+        }
 
     }
 }

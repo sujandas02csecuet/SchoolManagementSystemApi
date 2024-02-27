@@ -4,7 +4,7 @@ using SchoolManagementSystemApi.Services;
 
 namespace SchoolManagementSystemApi.Controllers
 {
-  
+
     [ApiController]
     [Route("api/[controller]/[action]")]
     public class StudentController : ControllerBase
@@ -60,7 +60,7 @@ namespace SchoolManagementSystemApi.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult GetAllStudentsById(string id)
         {
             var studentList = iStudentRepository.GetAllStudentsById(id).ToList();

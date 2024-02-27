@@ -9,5 +9,6 @@ namespace SchoolManagementSystemApi.Services
         string DeleteEmployeeById(string id);
         public List<EmployeeDto> GetAllEmployees();
         public ICollection<EmployeeDto> GetAllEmployeesByType(string employeeType);
+        public ICollection<EmployeeDto> GetEmployeeById(int id);
     }
 }
